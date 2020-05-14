@@ -30,6 +30,9 @@ Route::get('/users/hapus/{id}', 'UsersController@hapus');
 Route::get('/groups', 'GroupsController@index');
 
 Route::get('/brands', 'BrandsController@index');
+Route::post('/brands/add', 'BrandsController@add');
+Route::put('/brands/update/{id}', 'BrandsController@update');
+Route::get('/brands/hapus/{id}', 'BrandsController@hapus');
 
 Route::get('/category', 'CategoryController@index');
 

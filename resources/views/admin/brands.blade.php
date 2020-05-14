@@ -52,10 +52,23 @@
                             <th style="width: 20%">Action</th>
                         </thead>
                         <tbody>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <?php $no=1 ?>
+                            @foreach ($brands as $brand)
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $brand['name']}}</td>
+                                    <td>
+                                        @php
+                                            if($brand['active'] == 1){
+                                                echo "Active";
+                                            }else{
+                                                echo "Inactive";
+                                            }
+                                        @endphp
+                                    </td>
+                                    <td><a href="/brands/hapus/{{ $brand['id'] }}" class="btn btn-danger">Delete</a></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -74,14 +87,12 @@
                         aria-hidden="true">&times;</span></button>
             </div>
 
-            <form role="form" action="" method="post"
-                id="createBrandForm">
-
+            <form action="/brands/add" method="post">
+                {{ csrf_field() }}
                 <div class="modal-body">
-
                     <div class="form-group">
                         <label for="brand_name">Brand Name</label>
-                        <input type="text" class="form-control" id="brand_name" name="brand_name"
+                        <input type="text" class="form-control" name="name"
                             placeholder="Enter brand name" autocomplete="off">
                     </div>
                     <div class="form-group">
@@ -92,15 +103,11 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
-
             </form>
-
-
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>
