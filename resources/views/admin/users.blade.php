@@ -37,7 +37,7 @@
                     <div class="col-6 mt-2">
                         <a data-toggle="modal" data-target="#add_user" class="btn btn-secondary btn-xs text-white">
                             <i class="fas fa-plus"></i>
-                            Tambah User
+                            Add User
                         </a>
                     </div>
 
