@@ -30,14 +30,24 @@ Route::get('/users/hapus/{id}', 'UsersController@hapus');
 Route::get('/groups', 'GroupsController@index');
 
 Route::get('/brands', 'BrandsController@index');
+Route::post('/brands/add', 'BrandsController@add');
+Route::put('/brands/update/{id}', 'BrandsController@update');
+Route::get('/brands/hapus/{id}', 'BrandsController@hapus');
 
 Route::get('/category', 'CategoryController@index');
+Route::post('/category/add', 'CategoryController@add');
+Route::put('/category/update/{id}', 'CategoryController@update');
+Route::get('/category/hapus/{id}', 'CategoryController@hapus');
 
 Route::get('/stores', 'StoresController@index');
 
 Route::get('/attributes', 'AttributesController@index');
 
 Route::get('/products', 'ProductsController@index');
+Route::get('/products/add', 'ProductsController@add');
+
+Route::get('/orders', 'OrdersController@index');
+Route::get('/orders/add', 'OrdersController@add');
 
 Route::get('/reports', 'ReportsController@index');
 
