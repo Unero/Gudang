@@ -55,13 +55,18 @@
                             <th>Action</th>
                         </thead>
                         <tbody>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <?php $no = 1; ?>
+                            @foreach($users as $user)
+                                <tr>
+                                    <td>{{ $no }} <?php $no++; ?></td>
+                                    <td>{{ $user['username'] }}</td>
+                                    <td>{{ $user['email'] }}</td>
+                                    <td>{{ $user['firstname'].' '.$user['lastname'] }}</td>
+                                    <td>{{ $user['phone'] }}</td>
+                                    <td>{{ $user['gender'] }}</td>
+                                    <td><a href="/users/hapus/{{ $user['id'] }}" class="btn btn-danger">Delete</a></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -81,17 +86,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <form action="/users/add" method="POST">
+            {{ csrf_field() }}
             <div class="modal-body">
-                <form action="" enctype="multipart/form-data" method="POST">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="groups">Groups</label>
-                                <select class="form-control" id="groups" name="groups">
-                                    <option value="">Select Groups</option>
-                                    <option value="4">Owners</option>
-                                </select>
-                            </div>
                             <div class="form-group">
                                 <label for="username">Username</label>
                                 <input type="text" class="form-control" id="username" name="username"
@@ -99,21 +98,28 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email"
-                                    autocomplete="off">
-                            </div>
-
-                            <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" id="password" name="password"
+                                <input type="password" class="form-control" id="password" name="password"
                                     placeholder="Password" autocomplete="off">
                             </div>
 
                             <div class="form-group">
-                                <label for="cpassword">Confirm password</label>
-                                <input type="password" class="form-control" id="cpassword" name="cpassword"
-                                    placeholder="Confirm Password" autocomplete="off">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                                    autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <div class="radio">
+                                    <label class="mr-2">
+                                        <input type="radio" name="gender" id="male" value="Male">
+                                        Male
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="gender" id="female" value="Female">
+                                        Female
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -135,26 +141,12 @@
                                 <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone"
                                     autocomplete="off">
                             </div>
-
-                            <div class="form-group">
-                                <label for="gender">Gender</label>
-                                <div class="radio">
-                                    <label class="mr-2">
-                                        <input type="radio" name="gender" id="male" value="1">
-                                        Male
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="gender" id="female" value="2">
-                                        Female
-                                    </label>
-                                </div>
-                            </div>
                         </div>
                     </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
             </form>
         </div>

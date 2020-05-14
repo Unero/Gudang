@@ -21,6 +21,12 @@ Route::get('/dashboard', 'DashboardController@index');
 
 Route::get('/users', 'UsersController@index');
 
+Route::post('/users/add', 'UsersController@add');
+
+Route::put('/users/update/{id}', 'UsersController@update');
+
+Route::delete('/users/hapus/{id}', 'UsersController@hapus');
+
 Route::get('/groups', 'GroupsController@index');
 
 Route::get('/brands', 'BrandsController@index');
