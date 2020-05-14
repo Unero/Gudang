@@ -52,10 +52,23 @@
                             <th style="width: 20%">Action</th>
                         </thead>
                         <tbody>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <?php $no=1 ?>
+                            @foreach ($store as $str)
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $str['name']}}</td>
+                                <td>
+                                    @php
+                                    if($str['active'] == 1){
+                                    echo "Active";
+                                    }else{
+                                    echo "Inactive";
+                                    }
+                                    @endphp
+                                </td>
+                                <td><a href="/stores/hapus/{{ $str['id'] }}" class="btn btn-danger">Delete</a></td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -68,37 +81,39 @@
 {{-- Add Modal --}}
 <div class="modal fade" tabindex="-1" role="dialog" id="addModal">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Add Store</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Store</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+
+            <form action="/stores/add" method="post">
+                {{ csrf_field() }}
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="brand_name">Store Name</label>
+                        <input type="text" class="form-control" id="store_name" name="name"
+                            placeholder="Enter store name" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="active">Status</label>
+                        <select class="form-control" id="active" name="active">
+                            <option value="1">Active</option>
+                            <option value="2">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+
+            </form>
+
+
         </div>
-  
-        <form role="form" action="" method="post" id="createForm">
-  
-          <div class="modal-body">
-  
-            <div class="form-group">
-              <label for="brand_name">Store Name</label>
-              <input type="text" class="form-control" id="store_name" name="store_name" placeholder="Enter store name" autocomplete="off">
-            </div>
-            <div class="form-group">
-              <label for="active">Status</label>
-              <select class="form-control" id="active" name="active">
-                <option value="1">Active</option>
-                <option value="2">Inactive</option>
-              </select>
-            </div>
-          </div>
-  
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
-          </div>
-  
-        </form>
-  
-  
-      </div>
     </div>
-  </div>
+</div>

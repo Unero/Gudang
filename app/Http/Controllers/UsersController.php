@@ -36,11 +36,11 @@ class UsersController extends Controller
     // TODO: Fixing Delete
     public function hapus($id)
     {
-        $client = Http::delete('http://localhost/Gudang-Backend/API/Users', [
+        $client = Http::asForm()->delete('http://localhost/Gudang-Backend/API/Users', [
             'id' => $id
         ]);
 
-        if ($client->status() == 200) {
+        if ($client['status'] == 'success') {
             return redirect('/users');
         } else {
             return redirect('/dashboard');
