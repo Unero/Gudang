@@ -29,12 +29,12 @@ class CategoryController extends Controller
 
     public function hapus($id)
     {
-        $client = Http::delete('http://localhost/Gudang-Backend/API/Category', [
+        $client = Http::asForm()->delete('http://localhost/Gudang-Backend/API/Category', [
             'id' => $id
         ]);
 
-        if ($client->status() == 200) {
-            return redirect('/brands');
+        if ($client['status'] == 'success') {
+            return redirect('/category');
         } else {
             return redirect('/dashboard');
         }

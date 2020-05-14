@@ -29,11 +29,11 @@ class BrandsController extends Controller
 
     public function hapus($id)
     {
-        $client = Http::delete('http://localhost/Gudang-Backend/API/Brands', [
+        $client = Http::asForm()->delete('http://localhost/Gudang-Backend/API/Brands', [
             'id' => $id
         ]);
 
-        if ($client->status() == 200) {
+        if ($client['status'] == 'success') {
             return redirect('/brands');
         } else {
             return redirect('/dashboard');
