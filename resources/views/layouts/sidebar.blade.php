@@ -24,7 +24,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="/dashboard" class="nav-link">
               <i class="nav-icon fas fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -32,15 +32,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="/users" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                User
+                Users
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="/groups" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Groups
@@ -48,7 +48,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="/brands" class="nav-link">
               <i class="nav-icon fas fa-tags"></i>
               <p>
                 Brands
@@ -56,7 +56,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="/category" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Category
@@ -64,7 +64,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="/stores" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Store
@@ -72,7 +72,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="/attributes" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Attributes
@@ -80,7 +80,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="/products" class="nav-link">
               <i class="nav-icon fas fa-cube"></i>
               <p>
                 Products
@@ -88,7 +88,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="/orders" class="nav-link">
               <i class="nav-icon fas fa-dollar-sign"></i>
               <p>
                 Orders
@@ -96,7 +96,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="/reports" class="nav-link">
               <i class="nav-icon fas fa-chart-bar"></i>
               <p>
                 Reports
@@ -104,7 +104,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="/company" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Company

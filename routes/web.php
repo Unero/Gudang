@@ -17,4 +17,23 @@ Route::get('/', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/Users', 'UsersController@index');
+Route::get('/dashboard', 'DashboardController@index');
+
+Route::get('/users', 'UsersController@index');
+
+Route::get('/groups', 'GroupsController@index');
+
+Route::get('/brands', 'BrandsController@index');
+
+Route::get('/category', 'CategoryController@index');
+
+Route::get('/stores', 'StoresController@index');
+
+Route::get('/attributes', 'AttributesController@index');
+
+Route::get('/products', 'ProductsController@index');
+
+Route::get('/reports', 'ReportsController@index');
+
+Route::get('/company', 'CompanyController@index');
+

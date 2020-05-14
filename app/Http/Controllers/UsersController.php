@@ -9,6 +9,6 @@ class UsersController extends Controller
 {
     public function index(){
         $response = Http::get('http://localhost/Gudang-Backend/API/Users');
-        echo $response;
+        return view('admin/users');
     }
 }
