@@ -52,10 +52,23 @@
                             <th style="width: 20%">Action</th>
                         </thead>
                         <tbody>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <?php $no=1 ?>
+                            @foreach ($category as $ctg)
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $ctg['name']}}</td>
+                                    <td>
+                                        @php
+                                            if($ctg['active'] == 1){
+                                                echo "Active";
+                                            }else{
+                                                echo "Inactive";
+                                            }
+                                        @endphp
+                                    </td>
+                                    <td><a href="/category/hapus/{{ $ctg['id'] }}" class="btn btn-danger">Delete</a></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -74,18 +87,18 @@
                         aria-hidden="true">&times;</span></button>
             </div>
 
-            <form role="form" action="" method="post" id="createForm">
-
+            <form action="/category/add" method="post">
+                {{ csrf_field() }}
                 <div class="modal-body">
 
                     <div class="form-group">
                         <label for="brand_name">Category Name</label>
-                        <input type="text" class="form-control" id="category_name" name="category_name"
+                        <input type="text" class="form-control" name="name"
                             placeholder="Enter category name" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="active">Status</label>
-                        <select class="form-control" id="active" name="active">
+                        <select class="form-control" name="active">
                             <option value="1">Active</option>
                             <option value="2">Inactive</option>
                         </select>

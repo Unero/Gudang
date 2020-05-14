@@ -35,6 +35,9 @@ Route::put('/brands/update/{id}', 'BrandsController@update');
 Route::get('/brands/hapus/{id}', 'BrandsController@hapus');
 
 Route::get('/category', 'CategoryController@index');
+Route::post('/category/add', 'CategoryController@add');
+Route::put('/category/update/{id}', 'CategoryController@update');
+Route::get('/category/hapus/{id}', 'CategoryController@hapus');
 
 Route::get('/stores', 'StoresController@index');
 
