@@ -25,7 +25,7 @@ Route::post('/users/add', 'UsersController@add');
 
 Route::put('/users/update/{id}', 'UsersController@update');
 
-Route::delete('/users/hapus/{id}', 'UsersController@hapus');
+Route::get('/users/hapus/{id}', 'UsersController@hapus');
 
 Route::get('/groups', 'GroupsController@index');
 

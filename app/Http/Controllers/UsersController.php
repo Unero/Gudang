@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -39,14 +36,12 @@ class UsersController extends Controller
     // TODO: Fixing Delete
     public function hapus($id)
     {
-
         $client = Http::delete('http://localhost/Gudang-Backend/API/Users', [
             'id' => $id
         ]);
 
         if ($client->status() == 200) {
-            echo $id;
-            // return redirect('/users');
+            return redirect('/users');
         } else {
             return redirect('/dashboard');
         }
