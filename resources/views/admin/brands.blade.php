@@ -31,7 +31,7 @@
 
 
                     <div class="col-6">
-                        <i class="fas fa-copy"></i>
+                        <i class="fas fa-tags"></i>
                         Brand
                     </div>
                     <div class="col-6 mt-2">

@@ -12,13 +12,13 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown user user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/avatar5.png" class="user-image img-circle elevation-2 alt=" User Image">
+              <img src="{{ asset('dist/img/avatar5.png')}}" class="user-image img-circle elevation-2 alt=" User Image">
             </a>
       
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
               <!-- Dropdown Avatar -->
               <li class="user-header" style="background: rgb(52,58,64)">
-                <img src="dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+                <img src="{{ asset('dist/img/avatar5.png')}}" class="img-circle elevation-2" alt="User Image">
                 <p class="text-white">
                   Nama Pengguna <br>
                   <small>Staff since ...</small>

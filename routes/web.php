@@ -32,6 +32,10 @@ Route::get('/stores', 'StoresController@index');
 Route::get('/attributes', 'AttributesController@index');
 
 Route::get('/products', 'ProductsController@index');
+Route::get('/products/add', 'ProductsController@add');
+
+Route::get('/orders', 'OrdersController@index');
+Route::get('/orders/add', 'OrdersController@add');
 
 Route::get('/reports', 'ReportsController@index');
 
