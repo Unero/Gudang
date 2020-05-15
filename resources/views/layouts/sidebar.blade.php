@@ -8,107 +8,57 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
-      </div>
-
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/dashboard" class="nav-link">
-              <i class="nav-icon fas fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-              </p>
+            <a href="/Dashboard" class="nav-link">
+              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Dashboard</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/users" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                Users
-              </p>
+            <a href="/Users" class="nav-link">
+              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> User Management</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/groups" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Groups
-              </p>
+            <a href="/Roles" class="nav-link">
+              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Roles</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/brands" class="nav-link">
-              <i class="nav-icon fas fa-tags"></i>
-              <p>
-                Brands
-              </p>
+            <a href="/Brands" class="nav-link">
+              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Brands</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/category" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Category
-              </p>
+            <a href="/Category" class="nav-link">
+              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Category</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/stores" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Store
-              </p>
+            <a href="/Items" class="nav-link">
+              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Items</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/attributes" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Attributes
-              </p>
+            <a href="/Rooms" class="nav-link">
+              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Rooms</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/products" class="nav-link">
-              <i class="nav-icon fas fa-cube"></i>
-              <p>
-                Products
-              </p>
+            <a href="/Stores" class="nav-link">
+              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Stores</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/orders" class="nav-link">
-              <i class="nav-icon fas fa-dollar-sign"></i>
-              <p>
-                Orders
-              </p>
+            <a href="/Shipping" class="nav-link">
+              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Shipping</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/reports" class="nav-link">
-              <i class="nav-icon fas fa-chart-bar"></i>
-              <p>
-                Reports
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/company" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Company
-              </p>
+            <a href="/Company" class="nav-link">
+              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> About</p>
             </a>
           </li>
         </ul>

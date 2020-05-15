@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProductsController extends Controller
+class RoomsController extends Controller
 {
     public function index(){
         return view('admin/products');
@@ -13,4 +13,6 @@ class ProductsController extends Controller
     public function add(){
         return view('admin/productsAdd');
     }
+
+    public function hapus(){}
 }

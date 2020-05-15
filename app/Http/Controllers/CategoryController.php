@@ -7,23 +7,23 @@ use Illuminate\Support\Facades\Http;
 
 class CategoryController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $request = Http::get('http://localhost/Gudang-Backend/API/Category');
-        $category = json_decode($request->body(), true);
-        return view('admin/category', ['category' => $category]);
+        $Category = json_decode($request->body(), true);
+        return view('admin/category', ['Category' => $Category]);
     }
 
     public function add(Request $request)
     {
         $client = Http::post('http://localhost/Gudang-Backend/API/Category', [
-            'name' => $request->name,
-            'active' => $request->active
+            'name' => $request->name
         ]);
 
         if ($client->status() == 200) {
-            return redirect('/category');
+            return redirect('/Category');
         } else {
-            return redirect('/dashboard');
+            return redirect('/Dashboard');
         }
     }
 
@@ -34,9 +34,9 @@ class CategoryController extends Controller
         ]);
 
         if ($client['status'] == 'success') {
-            return redirect('/category');
+            return redirect('/Category');
         } else {
-            return redirect('/dashboard');
+            return redirect('/Dashboard');
         }
     }
 }

@@ -17,42 +17,55 @@ Route::get('/', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/dashboard', 'DashboardController@index');
+// Done
+Route::get('/Dashboard', 'DashboardController@index');
 
-Route::get('/users', 'UsersController@index');
+// Not: Update
+Route::get('/Users', 'UsersController@index');
+Route::post('/Users/add', 'UsersController@add');
+Route::get('/Users/update/{id}', 'UsersController@update');
+Route::post('/Users/u_process/{id}', 'UsersController@u_process');
+Route::get('/Users/hapus/{id}', 'UsersController@hapus');
 
-Route::post('/users/add', 'UsersController@add');
+// Done
+Route::get('/Roles', 'RolesController@index');
+Route::post('/Roles/add', 'RolesController@add');
+Route::get('/Roles/hapus/{id}', 'RolesController@hapus');
 
-Route::put('/users/update/{id}', 'UsersController@update');
+// Done
+Route::get('/Brands', 'BrandsController@index');
+Route::post('/Brands/add', 'BrandsController@add');
+Route::put('/Brands/update/{id}', 'BrandsController@update');
+Route::get('/Brands/hapus/{id}', 'BrandsController@hapus');
 
-Route::get('/users/hapus/{id}', 'UsersController@hapus');
+// Done
+Route::get('/Category', 'CategoryController@index');
+Route::post('/Category/add', 'CategoryController@add');
+Route::get('/Category/hapus/{id}', 'CategoryController@hapus');
 
-Route::get('/groups', 'GroupsController@index');
+// Done
+Route::get('/Items', 'ItemsController@index');
+Route::post('/Items/add', 'ItemsController@add');
+Route::get('/Items/update/{id}', 'ItemsController@update');
+Route::get('/Items/hapus/{id}', 'ItemsController@hapus');
 
-Route::get('/brands', 'BrandsController@index');
-Route::post('/brands/add', 'BrandsController@add');
-Route::put('/brands/update/{id}', 'BrandsController@update');
-Route::get('/brands/hapus/{id}', 'BrandsController@hapus');
+// Done
+Route::get('/Rooms', 'RoomsController@index');
+Route::post('/Rooms/add', 'RoomsController@add');
+Route::get('/Rooms/hapus/{id}', 'RoomsController@hapus');
 
-Route::get('/category', 'CategoryController@index');
-Route::post('/category/add', 'CategoryController@add');
-Route::put('/category/update/{id}', 'CategoryController@update');
-Route::get('/category/hapus/{id}', 'CategoryController@hapus');
+// Done
+Route::get('/Stores', 'StoresController@index');
+Route::post('/Stores/add', 'StoresController@add');
+Route::get('/Stores/update/{id}', 'StoresController@update');
+Route::get('/Stores/hapus/{id}', 'StoresController@hapus');
 
-Route::get('/stores', 'StoresController@index');
-Route::post('/stores/add', 'StoresController@add');
-Route::put('/stores/update/{id}', 'StoresController@update');
-Route::get('/stores/hapus/{id}', 'StoresController@hapus');
+// Done
+Route::get('/Shipping', 'ShippingController@index');
+Route::post('/Shipping/add', 'ShippingController@add');
+Route::get('/Shipping/hapus/{id}', 'ShippingController@hapus');
 
-Route::get('/attributes', 'AttributesController@index');
-
-Route::get('/products', 'ProductsController@index');
-Route::get('/products/add', 'ProductsController@add');
-
-Route::get('/orders', 'OrdersController@index');
-Route::get('/orders/add', 'OrdersController@add');
-
-Route::get('/reports', 'ReportsController@index');
-
-Route::get('/company', 'CompanyController@index');
-
+// Done
+Route::get('/Company', 'CompanyController@index');
+Route::put('/Company/update/{name}', 'CompanyController@update');
+Route::get('/Reports', 'CompanyController@report');

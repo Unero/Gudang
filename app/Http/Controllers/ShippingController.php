@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class StoresController extends Controller
+class ShippingController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $request = Http::get('http://localhost/Gudang-Backend/API/Stores');
         $Store = json_decode($request->body(), true);
         return view('admin/stores', ['Store' => $Store]);
@@ -16,21 +17,6 @@ class StoresController extends Controller
     public function add(Request $request)
     {
         $client = Http::post('http://localhost/Gudang-Backend/API/Stores', [
-            'name' => $request->name,
-            'active' => $request->active
-        ]);
-
-        if ($client->status() == 200) {
-            return redirect('/Stores');
-        } else {
-            return redirect('/Dashboard');
-        }
-    }
-
-    public function update(Request $request, $id)
-    {
-        $client = Http::post('http://localhost/Gudang-Backend/API/Stores', [
-            'id' => $id,
             'name' => $request->name,
             'active' => $request->active
         ]);

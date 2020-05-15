@@ -48,24 +48,31 @@
                         <thead>
                             <th>No</th>
                             <th>Username</th>
-                            <th>Email</th>
                             <th>Name</th>
+                            <th>Email</th>
                             <th>Phone</th>
-                            <th>Group</th>
+                            <th>Gender</th>
+                            <th>Address</th>
+                            <th>Role</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
                             <?php $no = 1; ?>
                             @foreach($users as $user)
-                                <tr>
-                                    <td>{{ $no }} <?php $no++; ?></td>
-                                    <td>{{ $user['username'] }}</td>
-                                    <td>{{ $user['email'] }}</td>
-                                    <td>{{ $user['firstname'].' '.$user['lastname'] }}</td>
-                                    <td>{{ $user['phone'] }}</td>
-                                    <td>{{ $user['gender'] }}</td>
-                                    <td><a href="/users/hapus/{{ $user['id'] }}" class="btn btn-danger">Delete</a></td>
-                                </tr>
+                            <tr>
+                                <td>{{ $no }} <?php $no++; ?></td>
+                                <td>{{ $user['username'] }}</td>
+                                <td>{{ $user['name'] }}</td>
+                                <td>{{ $user['email'] }}</td>
+                                <td>{{ $user['phone'] }}</td>
+                                <td>{{ $user['gender'] }}</td>
+                                <td>{{ $user['address'] }}</td>
+                                <td>{{ $user['role_id'] }}</td>
+                                <td>
+                                    <a href="/Users/update/{{ $user['id'] }}" class="btn btn-default mr-2">Update</a>
+                                    <a href="/Users/hapus/{{ $user['id'] }}" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -76,8 +83,7 @@
 </div>
 @include('layouts.footer')
 
-<div class="modal fade" id="add_user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="add_user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -86,28 +92,29 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/users/add" method="POST">
-            {{ csrf_field() }}
-            <div class="modal-body">
+            <form action="/Users/add" method="POST">
+                {{ csrf_field() }}
+                <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="Username" autocomplete="off">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Username" autocomplete="off">
                             </div>
-
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Password" autocomplete="off">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off">
                             </div>
-
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="First name" autocomplete="off">
+                            </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email"
-                                    autocomplete="off">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" autocomplete="off">
                             </div>
+                        </div>
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="gender">Gender</label>
                                 <div class="radio">
@@ -121,33 +128,25 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-                                <label for="fname">First name</label>
-                                <input type="text" class="form-control" id="fname" name="fname" placeholder="First name"
-                                    autocomplete="off">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="lname">Last name</label>
-                                <input type="text" class="form-control" id="lname" name="lname" placeholder="Last name"
-                                    autocomplete="off">
-                            </div>
-
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone"
-                                    autocomplete="off">
+                                <input type="phone" class="form-control" id="phone" name="phone" placeholder="Phone" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" id="address" name="address" placeholder="Phone" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="role_id">Role</label>
+                                <input type="text" class="form-control" id="role_id" name="role_id" placeholder="Phone" autocomplete="off">
                             </div>
                         </div>
                     </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
             </form>
         </div>
     </div>

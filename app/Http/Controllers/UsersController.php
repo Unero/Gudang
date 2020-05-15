@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class UsersController extends Controller
 {
+
     public function index()
     {
         $request = Http::get('http://localhost/Gudang-Backend/API/Users');
@@ -19,21 +20,47 @@ class UsersController extends Controller
         $client = Http::post('http://localhost/Gudang-Backend/API/Users', [
             'username' => $request->username,
             'password' => $request->password,
+            'name' => $request->name,
             'email' => $request->email,
-            'firstname' => $request->fname,
-            'lastname' => $request->lname,
             'phone' => $request->phone,
-            'gender' => $request->gender
+            'gender' => $request->gender,
+            'address' => $request->address,
+            'role_id' => $request->role_id,
         ]);
 
         if ($client->status() == 200) {
-            return redirect('/users');
+            return redirect('/Users');
         } else {
-            return redirect('/dashboard');
+            return redirect('/Dashboard');
         }
     }
 
-    // TODO: Fixing Delete
+    public function update($id){
+        $request = Http::get('http://localhost/Gudang-Backend/API/Users?data='.$id);
+        $users = json_decode($request->body(), true);
+        return view('admin/users-update', ['data' => $users]);
+    }
+
+    public function u_process($id, Request $request){
+        $client = Http::asForm()->put('http://localhost/Gudang-Backend/API/Users', [
+            'id' => $id,
+            'username' => $request->username,
+            'password' => $request->password,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'gender' => $request->gender,
+            'address' => $request->address,
+            'role_id' => $request->role_id,
+        ]);
+
+        if ($client->successful()) {
+            return redirect('/Users');
+        } else {
+            return redirect('/Dashboard');
+        }
+    }
+
     public function hapus($id)
     {
         $client = Http::asForm()->delete('http://localhost/Gudang-Backend/API/Users', [
@@ -41,9 +68,9 @@ class UsersController extends Controller
         ]);
 
         if ($client['status'] == 'success') {
-            return redirect('/users');
+            return redirect('/Users');
         } else {
-            return redirect('/dashboard');
+            return redirect('/Dashboard');
         }
     }
 }

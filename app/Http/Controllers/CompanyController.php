@@ -9,4 +9,8 @@ class CompanyController extends Controller
     public function index(){
         return view('admin/company');
     }
+
+    public function update(){}
+
+    public function report(){}
 }
