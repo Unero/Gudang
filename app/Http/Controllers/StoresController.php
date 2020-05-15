@@ -9,33 +9,32 @@ class StoresController extends Controller
 {
     public function index(){
         $request = Http::get('http://localhost/Gudang-Backend/API/Stores');
-        $Store = json_decode($request->body(), true);
-        return view('admin/stores', ['Store' => $Store]);
+        $Stores = json_decode($request->body(), true);
+        return view('admin/stores', ['Stores' => $Stores]);
     }
 
     public function add(Request $request)
     {
         $client = Http::post('http://localhost/Gudang-Backend/API/Stores', [
             'name' => $request->name,
-            'active' => $request->active
+            'address' => $request->address
         ]);
 
         if ($client->status() == 200) {
             return redirect('/Stores');
         } else {
-            return redirect('/Dashboard');
+            return redirect('/dashboard');
         }
     }
 
-    public function update(Request $request, $id)
-    {
-        $client = Http::post('http://localhost/Gudang-Backend/API/Stores', [
+    public function update($id, Request $request){
+        $client = Http::asForm()->put('http://localhost/Gudang-Backend/API/Stores', [
             'id' => $id,
             'name' => $request->name,
-            'active' => $request->active
+            'address' => $request->address
         ]);
 
-        if ($client->status() == 200) {
+        if ($client->successful()) {
             return redirect('/Stores');
         } else {
             return redirect('/Dashboard');
@@ -51,7 +50,7 @@ class StoresController extends Controller
         if ($client['status'] == 'success') {
             return redirect('/Stores');
         } else {
-            return redirect('/Dashboard');
+            return redirect('/dashboard');
         }
     }
 }

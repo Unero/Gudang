@@ -48,25 +48,18 @@
                         <thead>
                             <th style="width: 10%">No</th>
                             <th style="width: 45%">Category Name</th>
-                            <th style="width: 25%">Status</th>
                             <th style="width: 20%">Action</th>
                         </thead>
                         <tbody>
                             <?php $no=1 ?>
-                            @foreach ($category as $ctg)
+                            @foreach ($Category as $ctg)
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $ctg['name']}}</td>
                                     <td>
-                                        @php
-                                            if($ctg['active'] == 1){
-                                                echo "Active";
-                                            }else{
-                                                echo "Inactive";
-                                            }
-                                        @endphp
+                                        <a data-toggle="modal" data-target="#updateModal-{{ $ctg['id'] }}" class="btn btn-default mr-2">Update</a>
+                                        <a href="/Category/hapus/{{ $ctg['id'] }}" class="btn btn-danger">Delete</a>
                                     </td>
-                                    <td><a href="/category/hapus/{{ $ctg['id'] }}" class="btn btn-danger">Delete</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -87,21 +80,14 @@
                         aria-hidden="true">&times;</span></button>
             </div>
 
-            <form action="/category/add" method="post">
+            <form action="/Category/add" method="post">
                 {{ csrf_field() }}
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label for="brand_name">Category Name</label>
+                        <label for="name">Category Name</label>
                         <input type="text" class="form-control" name="name"
-                            placeholder="Enter category name" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label for="active">Status</label>
-                        <select class="form-control" name="active">
-                            <option value="1">Active</option>
-                            <option value="2">Inactive</option>
-                        </select>
+                            placeholder="Enter Category name" autocomplete="off" required>
                     </div>
                 </div>
 
@@ -116,3 +102,38 @@
         </div>
     </div>
 </div>
+
+@foreach ($Category as $data)
+{{-- Modal Update --}}
+<div class="modal fade" tabindex="-1" role="dialog" id="updateModal-{{ $data['id'] }}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Update Category</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+
+            <form action="/Category/update/{{ $data['id'] }}" method="POST">
+                {{ csrf_field() }}
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="name">Category Name</label>
+                        <input type="text" class="form-control" name="name"
+                            placeholder="Enter Category name" autocomplete="off" value="{{ $data['name'] }}">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+</div>
+@endforeach
