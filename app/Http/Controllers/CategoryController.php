@@ -27,6 +27,19 @@ class CategoryController extends Controller
         }
     }
 
+    public function update($id, Request $request){
+        $client = Http::asForm()->put('http://localhost/Gudang-Backend/API/Category', [
+            'id' => $id,
+            'name' => $request->name,
+        ]);
+
+        if ($client->successful()) {
+            return redirect('/Category');
+        } else {
+            return redirect('/Dashboard');
+        }
+    }
+
     public function hapus($id)
     {
         $client = Http::asForm()->delete('http://localhost/Gudang-Backend/API/Category', [

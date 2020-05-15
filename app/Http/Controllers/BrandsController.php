@@ -10,7 +10,7 @@ class BrandsController extends Controller
     public function index(){
         $request = Http::get('http://localhost/Gudang-Backend/API/Brands');
         $Brands = json_decode($request->body(), true);
-        return view('admin/brand', ['Brands' => $Brands]);
+        return view('admin/brands', ['Brands' => $Brands]);
     }
 
     public function add(Request $request)
@@ -29,9 +29,8 @@ class BrandsController extends Controller
         }
     }
 
-    public function update(Request $request, $id)
-    {
-        $client = Http::put('http://localhost/Gudang-Backend/API/Brands', [
+    public function update($id, Request $request){
+        $client = Http::asForm()->put('http://localhost/Gudang-Backend/API/Brands', [
             'id' => $id,
             'name' => $request->name,
             'company' => $request->company,
@@ -39,7 +38,7 @@ class BrandsController extends Controller
             'phone' => $request->phone
         ]);
 
-        if ($client->status() == 200) {
+        if ($client->successful()) {
             return redirect('/Brands');
         } else {
             return redirect('/Dashboard');

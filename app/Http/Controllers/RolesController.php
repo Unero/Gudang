@@ -26,6 +26,19 @@ class RolesController extends Controller
         }
     }
 
+    public function update($id, Request $request){
+        $client = Http::asForm()->put('http://localhost/Gudang-Backend/API/Roles', [
+            'id' => $id,
+            'role_name' => $request->rolename,
+        ]);
+
+        if ($client->successful()) {
+            return redirect('/Roles');
+        } else {
+            return redirect('/Dashboard');
+        }
+    }
+
     public function hapus($id)
     {
         $client = Http::asForm()->delete('http://localhost/Gudang-Backend/API/Roles', [
