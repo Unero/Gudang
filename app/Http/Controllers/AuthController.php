@@ -20,20 +20,19 @@ class AuthController extends Controller
     public function auth(Request $request)
     {
         // POST username and password
-        $client = Http::post('http://localhost/Gudang-Backend/API/Users/login', [
+        $client = Http::get('http://localhost/Gudang-Backend/API/Auth', [
             'username' => $request->username,
             'password' => $request->password
         ]);
         // decode json to array
+        $account = json_decode($client->body(), true);
 
-
-        if ($client->successful()) {
-            $account = json_decode($client->body(), true);
+        if ($account['code'] == 200) {
             // Set information into session
-            $request->session()->put('active_id', $account[0]['id']);
-            $request->session()->put('active_name', $account[0]['name']);
-            $request->session()->put('active_username', $account[0]['username']);
-            $request->session()->put('active_role_id', $account[0]['role_id']);
+            $request->session()->put('active_id', $account[0][0]['id']);
+            $request->session()->put('active_name', $account[0][0]['name']);
+            $request->session()->put('active_username', $account[0][0]['username']);
+            $request->session()->put('active_role_id', $account[0][0]['role_id']);
             return redirect('/Dashboard');
         } else {
             echo '<script>window.alert("Data akun salah, tolong periksa kembali");</script>';
