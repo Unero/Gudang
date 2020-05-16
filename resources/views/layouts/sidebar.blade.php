@@ -13,52 +13,52 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
             <a href="/Dashboard" class="nav-link">
-              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Dashboard</p>
+              <p>🖼 Dashboard</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/Users" class="nav-link">
-              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> User Management</p>
+              <p>👥 User Management</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/Roles" class="nav-link">
-              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Roles</p>
+              <p>📏 Roles</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/Brands" class="nav-link">
-              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Brands</p>
+              <p>💎 Brands</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/Category" class="nav-link">
-              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Category</p>
+              <p>🗂 Category</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/Items" class="nav-link">
-              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Items</p>
+              <p>🍞 Items</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/Rooms" class="nav-link">
-              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Rooms</p>
+              <p>🏚 Rooms</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/Stores" class="nav-link">
-              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Stores</p>
+              <p>🏦 Stores</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/Shipping" class="nav-link">
-              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> Shipping</p>
+              <p>🚚 Shipping</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="/Company" class="nav-link">
-              <i class="nav-icon fas fas fa-tachometer-alt"></i><p> About</p>
+              <p>🔰 About</p>
             </a>
           </li>
         </ul>

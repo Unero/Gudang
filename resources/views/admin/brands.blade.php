@@ -58,7 +58,7 @@
                             @foreach ($Brands as $brand)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td>{{ $brand['name']}}</td>
+                                    <td>{{ $brand['brand_name']}}</td>
                                     <td>{{ $brand['company']}}</td>
                                     <td>{{ $brand['address']}}</td>
                                     <td>{{ $brand['phone']}}</td>
@@ -142,7 +142,7 @@
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" name="name"
-                            placeholder="Enter Name" autocomplete="off" value="{{ $data['name'] }}">
+                            placeholder="Enter Name" autocomplete="off" value="{{ $data['brand_name'] }}">
                     </div>
                     <div class="form-group">
                         <label for="company">Company</label>

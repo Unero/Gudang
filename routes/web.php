@@ -72,4 +72,4 @@ Route::get('/Shipping/hapus/{id}', 'ShippingController@hapus');
 // Done
 Route::get('/Company', 'CompanyController@index');
 Route::put('/Company/update/{name}', 'CompanyController@update');
-Route::get('/Reports', 'CompanyController@report');
+Route::get('/Report', 'ReportsController@index');

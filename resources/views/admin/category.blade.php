@@ -55,7 +55,7 @@
                             @foreach ($Category as $ctg)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td>{{ $ctg['name']}}</td>
+                                    <td>{{ $ctg['category_name']}}</td>
                                     <td>
                                         <a data-toggle="modal" data-target="#updateModal-{{ $ctg['id'] }}" class="btn btn-default mr-2">Update</a>
                                         <a href="/Category/hapus/{{ $ctg['id'] }}" class="btn btn-danger">Delete</a>
@@ -121,7 +121,7 @@
                     <div class="form-group">
                         <label for="name">Category Name</label>
                         <input type="text" class="form-control" name="name"
-                            placeholder="Enter Category name" autocomplete="off" value="{{ $data['name'] }}">
+                            placeholder="Enter Category name" autocomplete="off" value="{{ $data['category_name'] }}">
                     </div>
                 </div>
 

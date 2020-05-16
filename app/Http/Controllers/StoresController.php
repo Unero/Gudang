@@ -16,21 +16,21 @@ class StoresController extends Controller
     public function add(Request $request)
     {
         $client = Http::post('http://localhost/Gudang-Backend/API/Stores', [
-            'name' => $request->name,
+            'store_name' => $request->name,
             'address' => $request->address
         ]);
 
         if ($client->status() == 200) {
             return redirect('/Stores');
         } else {
-            return redirect('/dashboard');
+            return redirect('/Dashboard');
         }
     }
 
     public function update($id, Request $request){
         $client = Http::asForm()->put('http://localhost/Gudang-Backend/API/Stores', [
             'id' => $id,
-            'name' => $request->name,
+            'store_name' => $request->name,
             'address' => $request->address
         ]);
 

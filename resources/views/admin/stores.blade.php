@@ -56,7 +56,7 @@
                             @foreach ($Stores as $st)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td>{{ $st['name']}}</td>
+                                    <td>{{ $st['store_name']}}</td>
                                     <td>{{ $st['address']}}</td>
                                     <td>
                                         <a data-toggle="modal" data-target="#updateModal-{{ $st['id'] }}" class="btn btn-default mr-2">Update</a>
@@ -128,7 +128,7 @@
                     <div class="form-group">
                         <label for="name">Store Name</label>
                         <input type="text" class="form-control" name="name"
-                        placeholder="Enter Store name" autocomplete="off" value="{{ $data['name'] }}">
+                        placeholder="Enter Store name" autocomplete="off" value="{{ $data['store_name'] }}">
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>

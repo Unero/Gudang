@@ -67,7 +67,7 @@
                                 <td>{{ $user['phone'] }}</td>
                                 <td>{{ $user['gender'] }}</td>
                                 <td>{{ $user['address'] }}</td>
-                                <td>{{ $user['role_id'] }}</td>
+                                <td>{{ $user['role_name'] }}</td>
                                 <td>
                                     <a href="/Users/update/{{ $user['id'] }}" class="btn btn-default mr-2">Update</a>
                                     <a href="/Users/hapus/{{ $user['id'] }}" class="btn btn-danger">Delete</a>

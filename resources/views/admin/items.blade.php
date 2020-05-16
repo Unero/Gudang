@@ -65,9 +65,9 @@
                                     <td>{{ $item['price']}}</td>
                                     <td>{{ $item['qty']}}</td>
                                     <td>{{ $item['description']}}</td>
-                                    <td>{{ $item['room_id']}}</td>
-                                    <td>{{ $item['brand_id']}}</td>
-                                    <td>{{ $item['category_id']}}</td>
+                                    <td>{{ $item['location']}}</td>
+                                    <td>{{ $item['brand_name']}}</td>
+                                    <td>{{ $item['category_name']}}</td>
                                     <td>
                                         <a data-toggle="modal" data-target="#updateModal-{{ $item['id'] }}" class="btn btn-default mr-2">Update</a>
                                         <a href="/Items/hapus/{{ $item['id'] }}" class="btn btn-danger">Delete</a>
@@ -118,7 +118,7 @@
                                     placeholder="Enter Description" autocomplete="off" required>
                             </div>
                         </div>
-    
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="room_id">Room</label>
@@ -132,7 +132,7 @@
                                 <label for="brand_id">Brand</label>
                                 <select name="brand_id" class="form-control select2" required>
                                     @foreach ($Brands as $brand)
-                                        <option value="{{ $brand['id'] }}">{{ $brand['name'] }}</option>
+                                        <option value="{{ $brand['id'] }}">{{ $brand['brand_name'] }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -140,7 +140,7 @@
                                 <label for="category_id">Category</label>
                                 <select name="category_id" class="form-control select2" required>
                                     @foreach ($Category as $category)
-                                        <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                                        <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -198,7 +198,7 @@
                                     placeholder="Enter Description" autocomplete="off" value="{{ $data['description'] }}">
                             </div>
                         </div>
-    
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="room_id">Room</label>
@@ -214,7 +214,7 @@
                                 <select name="brand_id" class="form-control select2">
                                     <option value="{{ $data['brand_id'] }}">{{ $data['brand_id'] }}</option>
                                     @foreach ($Brands as $brand)
-                                        <option value="{{ $brand['id'] }}">{{ $brand['name'] }}</option>
+                                        <option value="{{ $brand['id'] }}">{{ $brand['brand_name'] }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -223,7 +223,7 @@
                                 <select name="category_id" class="form-control select2">
                                     <option value="{{ $data['category_id'] }}">{{ $data['category_id'] }}</option>
                                     @foreach ($Category as $category)
-                                        <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                                        <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
                                     @endforeach
                                 </select>
                             </div>

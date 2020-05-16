@@ -16,7 +16,7 @@ class BrandsController extends Controller
     public function add(Request $request)
     {
         $client = Http::post('http://localhost/Gudang-Backend/API/Brands', [
-            'name' => $request->name,
+            'brand_name' => $request->name,
             'company' => $request->company,
             'address' => $request->address,
             'phone' => $request->phone
@@ -32,7 +32,7 @@ class BrandsController extends Controller
     public function update($id, Request $request){
         $client = Http::asForm()->put('http://localhost/Gudang-Backend/API/Brands', [
             'id' => $id,
-            'name' => $request->name,
+            'brand_name' => $request->name,
             'company' => $request->company,
             'address' => $request->address,
             'phone' => $request->phone

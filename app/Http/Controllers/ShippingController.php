@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Http;
 
 class ShippingController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $reqShipping = Http::get('http://localhost/Gudang-Backend/API/Shipping');
         $Shipping = json_decode($reqShipping->body(), true);
         $reqStore = Http::get('http://localhost/Gudang-Backend/API/Stores');
@@ -21,7 +22,7 @@ class ShippingController extends Controller
             'Items' => $Items,
             'Stores' => $Stores,
             'Users' => $Users
-            ]);
+        ]);
     }
 
     public function add(Request $request)
@@ -42,7 +43,8 @@ class ShippingController extends Controller
         }
     }
 
-    public function update($id, Request $request){
+    public function update($id, Request $request)
+    {
         $client = Http::asForm()->put('http://localhost/Gudang-Backend/API/Shipping', [
             'id' => $id,
             'item_id' => $request->item_id,

@@ -17,7 +17,7 @@ class CategoryController extends Controller
     public function add(Request $request)
     {
         $client = Http::post('http://localhost/Gudang-Backend/API/Category', [
-            'name' => $request->name
+            'category_name' => $request->name
         ]);
 
         if ($client->status() == 200) {
@@ -30,7 +30,7 @@ class CategoryController extends Controller
     public function update($id, Request $request){
         $client = Http::asForm()->put('http://localhost/Gudang-Backend/API/Category', [
             'id' => $id,
-            'name' => $request->name,
+            'category_name' => $request->name,
         ]);
 
         if ($client->successful()) {
@@ -46,7 +46,7 @@ class CategoryController extends Controller
             'id' => $id
         ]);
 
-        if ($client['status'] == 'success') {
+        if ($client->successful()) {
             return redirect('/Category');
         } else {
             return redirect('/Dashboard');
