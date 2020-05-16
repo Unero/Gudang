@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.dashboard');
-});
-
 // Done
 Route::get('/Dashboard', 'DashboardController@index');
 
@@ -73,3 +69,7 @@ Route::get('/Shipping/hapus/{id}', 'ShippingController@hapus');
 Route::get('/Company', 'CompanyController@index');
 Route::put('/Company/update/{name}', 'CompanyController@update');
 Route::get('/Report', 'ReportsController@index');
+
+Route::get('/', 'AuthController@login');
+Route::post('/Auth/auth', 'AuthController@auth');
+Route::get('/Auth/logout', 'AuthController@logout');

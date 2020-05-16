@@ -12,7 +12,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown user user-menu">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                        USername
+                        {{ session('active_name') }}
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -30,7 +30,7 @@
                                 <a href="" class="btn btn-default btn-flat"><i class="fas fa-wrench"></i> Setting</a>
                             </div>
                             <div class="float-right">
-                                <a href="" class="btn btn-default btn-flat"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+                                <a href="/Auth/logout" class="btn btn-default btn-flat"><i class="fas fa-sign-out-alt"></i> Sign out</a>
                             </div>
                         </li>
                     </ul>
