@@ -21,7 +21,6 @@
                             <img src="{{ asset('dist/img/avatar5.png')}}" class="img-circle elevation-2" alt="User Image">
                             <p class="text-white">
                                 {{ session('active_name') }} <br>
-                                <small>{{ session('active_id') }}</small>
                             </p>
                         </li>
                         <!-- Dropdown Footer -->

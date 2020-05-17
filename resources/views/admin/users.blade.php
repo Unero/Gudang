@@ -147,7 +147,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="role_id">Role</label>
-                                <input type="text" class="form-control" id="role_id" name="role_id" placeholder="Phone" autocomplete="off">
+                                <select name="role_id" class="form-control">
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role['id'] }}">{{ $role['role_name'] }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>

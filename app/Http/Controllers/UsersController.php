@@ -10,9 +10,14 @@ class UsersController extends Controller
 
     public function index()
     {
-        $request = Http::get('http://localhost/Gudang-Backend/API/Users');
-        $users = json_decode($request->body(), true);
-        return view('admin/users', ['users' => $users]);
+        $reqUser = Http::get('http://localhost/Gudang-Backend/API/Users');
+        $users = json_decode($reqUser->body(), true);
+        $reqRole = Http::get('http://localhost/Gudang-Backend/API/Roles');
+        $roles = json_decode($reqRole->body(), true);
+        return view('admin/users', [
+            'users' => $users,
+            'roles' => $roles
+            ]);
     }
 
     public function add(Request $request)
@@ -36,9 +41,14 @@ class UsersController extends Controller
     }
 
     public function update($id){
-        $request = Http::get('http://localhost/Gudang-Backend/API/Users?data='.$id);
-        $users = json_decode($request->body(), true);
-        return view('admin/users-update', ['data' => $users]);
+        $reqUser = Http::get('http://localhost/Gudang-Backend/API/Users?data='.$id);
+        $users = json_decode($reqUser->body(), true);
+        $reqRole = Http::get('http://localhost/Gudang-Backend/API/Roles');
+        $roles = json_decode($reqRole->body(), true);
+        return view('admin/users-update', [
+            'data' => $users,
+            'roles' => $roles
+            ]);
     }
 
     public function u_process($id, Request $request){
