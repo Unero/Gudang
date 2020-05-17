@@ -83,7 +83,14 @@
                         </div>
                         <div class="form-group">
                             <label for="role_id">Role</label>
-                            <input type="text" class="form-control" id="role_id" name="role_id" value="{{ $data[0]['role_id'] }}">
+                            <select name="role_id" class="form-control">
+                                <option value="{{ $data[0]['role_id'] }}">{{ $data[0]['role_name'] }}</option>
+                                @foreach ($roles as $role)
+                                    @if ($role['id'] != $data[0]['role_id'])
+                                        <option value="{{ $role['id'] }}">{{ $role['role_name'] }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary ml-2">Submit</button>

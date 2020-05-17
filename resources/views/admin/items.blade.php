@@ -122,7 +122,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="room_id">Room</label>
-                                <select name="room_id" class="form-control select2" required>
+                                <select name="room_id" class="form-control" required>
                                     @foreach ($Rooms as $room)
                                         <option value="{{ $room['id'] }}">{{ $room['location'] }}</option>
                                     @endforeach
@@ -130,7 +130,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="brand_id">Brand</label>
-                                <select name="brand_id" class="form-control select2" required>
+                                <select name="brand_id" class="form-control" required>
                                     @foreach ($Brands as $brand)
                                         <option value="{{ $brand['id'] }}">{{ $brand['brand_name'] }}</option>
                                     @endforeach
@@ -138,7 +138,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="category_id">Category</label>
-                                <select name="category_id" class="form-control select2" required>
+                                <select name="category_id" class="form-control" required>
                                     @foreach ($Category as $category)
                                         <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
                                     @endforeach
@@ -202,7 +202,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="room_id">Room</label>
-                                <select name="room_id" class="form-control select2">
+                                <select name="room_id" class="form-control">
                                     <option value="{{ $data['room_id'] }}">{{ $data['room_id'] }}</option>
                                     @foreach ($Rooms as $room)
                                         <option value="{{ $room['id'] }}">{{ $room['location'] }}</option>
@@ -211,7 +211,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="brand_id">Brand</label>
-                                <select name="brand_id" class="form-control select2">
+                                <select name="brand_id" class="form-control">
                                     <option value="{{ $data['brand_id'] }}">{{ $data['brand_id'] }}</option>
                                     @foreach ($Brands as $brand)
                                         <option value="{{ $brand['id'] }}">{{ $brand['brand_name'] }}</option>
@@ -220,7 +220,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="category_id">Category</label>
-                                <select name="category_id" class="form-control select2">
+                                <select name="category_id" class="form-control">
                                     <option value="{{ $data['category_id'] }}">{{ $data['category_id'] }}</option>
                                     @foreach ($Category as $category)
                                         <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
