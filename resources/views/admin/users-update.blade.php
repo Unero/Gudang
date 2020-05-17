@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="container-fluid card pb-2 pt-2">
                 <div class="row">
                     <div class="col-md-6">
                         <form action="/Users/u_process/{{ $data[0]['id'] }}" method="POST">
@@ -86,7 +86,7 @@
                             <input type="text" class="form-control" id="role_id" name="role_id" value="{{ $data[0]['role_id'] }}">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary ml-2">Submit</button>
                     </form>
                 </div>
             </div>

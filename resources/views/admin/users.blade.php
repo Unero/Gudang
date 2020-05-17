@@ -29,16 +29,17 @@
             <div class="card">
                 <div class="card-header">
 
-
                     <div class="col-6">
                         <i class="fas fa-user"></i>
                         User
                     </div>
                     <div class="col-6 mt-2">
+                        @if (session('active_role_id') != 3)
                         <a data-toggle="modal" data-target="#add_user" class="btn btn-secondary btn-xs text-white">
                             <i class="fas fa-plus"></i>
                             Add User
                         </a>
+                        @endif
                     </div>
 
 
@@ -68,10 +69,18 @@
                                 <td>{{ $user['gender'] }}</td>
                                 <td>{{ $user['address'] }}</td>
                                 <td>{{ $user['role_name'] }}</td>
+
+                                @if (session('active_role_id') != 3)
                                 <td>
                                     <a href="/Users/update/{{ $user['id'] }}" class="btn btn-default mr-2">Update</a>
                                     <a href="/Users/hapus/{{ $user['id'] }}" class="btn btn-danger">Delete</a>
                                 </td>
+                                @elseif (session('active_role_id') == $user['role_id'])
+                                <td>
+                                    <a href="/Users/update/{{ $user['id'] }}" class="btn btn-default mr-2">Update</a>
+                                    <a href="/Users/hapus/{{ $user['id'] }}" class="btn btn-danger">Delete</a>
+                                </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

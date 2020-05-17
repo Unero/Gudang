@@ -20,15 +20,12 @@
                         <li class="user-header" style="background: rgb(52,58,64)">
                             <img src="{{ asset('dist/img/avatar5.png')}}" class="img-circle elevation-2" alt="User Image">
                             <p class="text-white">
-                                Nama Pengguna <br>
-                                <small>Staff since ...</small>
+                                {{ session('active_name') }} <br>
+                                <small>{{ session('active_id') }}</small>
                             </p>
                         </li>
                         <!-- Dropdown Footer -->
                         <li class="user-footer">
-                            <div class="float-left">
-                                <a href="" class="btn btn-default btn-flat"><i class="fas fa-wrench"></i> Setting</a>
-                            </div>
                             <div class="float-right">
                                 <a href="/Auth/logout" class="btn btn-default btn-flat"><i class="fas fa-sign-out-alt"></i> Sign out</a>
                             </div>

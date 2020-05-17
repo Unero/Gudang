@@ -45,6 +45,7 @@
                 </div>
                 <div class="card-body">
                     <table class="table table-striped table-bordered text-center" id="datatables">
+
                         <thead>
                             <th style="width: 5%">No</th>
                             <th style="width: 15%">Item</th>
@@ -92,7 +93,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="item_id">Item</label>
-                        <select name="item_id" class="form-control select2" required>
+                        <select name="item_id" class="form-control" required>
                             @foreach ($Items as $item)
                             <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
                             @endforeach
@@ -111,7 +112,7 @@
                     </div>
                     <div class="form-group">
                         <label for="store_id">Store</label>
-                        <select name="store_id" class="form-control select2" required>
+                        <select name="store_id" class="form-control" required>
                             @foreach ($Stores as $store)
                             <option value="{{ $store['id'] }}">{{ $store['store_name'] }}</option>
                             @endforeach
@@ -119,15 +120,11 @@
                     </div>
                     <div class="form-group">
                         <label for="user_id">User</label>
-                        <select name="user_id" class="form-control select2" required>
-                            @foreach ($Users as $user)
-                            <option value="{{ $user['id'] }}">{{ $user['name'] }}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" class="form-control" name="user_id" value="{{ session('active_id') }}"  disabled>
                     </div>
                     <div class="form-group">
                         <label for="time">Time</label>
-                        <input type="text" class="form-control" name="qty" value="<?= date("Y-m-d H:i:s") ?>" disabled>
+                        <input type="text" class="form-control" name="time" value="<?= date("Y-m-d H:i:s") ?>" disabled>
                     </div>
 
 

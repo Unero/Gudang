@@ -35,34 +35,52 @@
                         Roles
                     </div>
                     <div class="col-6 mt-2">
+                        @if (session('active_role_id') != 3)
                         <a data-toggle="modal" data-target="#addModal" class="btn btn-secondary btn-xs text-white">
                             <i class="fas fa-plus"></i>
                             Add Role
                         </a>
+                        @endif
                     </div>
 
 
                 </div>
-                <div class="card-body">
+                <div class="card-body text-center">
                     <table class="table table-striped table-bordered" id="datatables">
+                        @if (session('active_role_id') != 3)
                         <thead>
                             <th style="width: 10%">No</th>
                             <th style="width: 45%">Role Name</th>
                             <th style="width: 20%">Action</th>
                         </thead>
                         <tbody>
-                            <?php $no=1 ?>
+                            <?php $no = 1 ?>
                             @foreach ($Roles as $r)
-                                <tr>
-                                    <td>{{ $no++ }}</td>
-                                    <td>{{ $r['role_name']}}</td>
-                                    <td>
-                                        <a data-toggle="modal" data-target="#updateModal-{{ $r['id'] }}" class="btn btn-default mr-2">Update</a>
-                                        <a href="/Roles/hapus/{{ $r['id'] }}" class="btn btn-danger">Delete</a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $r['role_name']}}</td>
+                                <td>
+                                    <a data-toggle="modal" data-target="#updateModal-{{ $r['id'] }}" class="btn btn-default mr-2">Update</a>
+                                    <a href="/Roles/hapus/{{ $r['id'] }}" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
+                        @else
+                        <thead>
+                            <th style="width: 10%">No</th>
+                            <th style="width: 45%">Role Name</th>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1 ?>
+                            @foreach ($Roles as $r)
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $r['role_name']}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                        @endif
                     </table>
                 </div>
             </div>
@@ -76,8 +94,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Add Role</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
 
             <form action="/Roles/add" method="post">
@@ -86,8 +103,7 @@
 
                     <div class="form-group">
                         <label for="brand_name">Role Name</label>
-                        <input type="text" class="form-control" name="rolename"
-                            placeholder="Enter Role name" autocomplete="off" required>
+                        <input type="text" class="form-control" name="rolename" placeholder="Enter Role name" autocomplete="off" required>
                     </div>
                 </div>
 
@@ -110,8 +126,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Update Role</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
 
             <form action="/Roles/update/{{ $data['id'] }}" method="POST">
@@ -120,8 +135,7 @@
 
                     <div class="form-group">
                         <label for="brand_name">Role Name</label>
-                        <input type="text" class="form-control" name="rolename"
-                            placeholder="Enter Role name" autocomplete="off" value="{{ $data['role_name'] }}">
+                        <input type="text" class="form-control" name="rolename" placeholder="Enter Role name" autocomplete="off" value="{{ $data['role_name'] }}">
                     </div>
                 </div>
 

@@ -52,17 +52,17 @@
                             <th style="width: 20%">Action</th>
                         </thead>
                         <tbody>
-                            <?php $no=1 ?>
+                            <?php $no = 1 ?>
                             @foreach ($Stores as $st)
-                                <tr>
-                                    <td>{{ $no++ }}</td>
-                                    <td>{{ $st['store_name']}}</td>
-                                    <td>{{ $st['address']}}</td>
-                                    <td>
-                                        <a data-toggle="modal" data-target="#updateModal-{{ $st['id'] }}" class="btn btn-default mr-2">Update</a>
-                                        <a href="/Stores/hapus/{{ $st['id'] }}" class="btn btn-danger">Delete</a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $st['store_name']}}</td>
+                                <td>{{ $st['address']}}</td>
+                                <td>
+                                    <a data-toggle="modal" data-target="#updateModal-{{ $st['id'] }}" class="btn btn-default mr-2">Update</a>
+                                    <a href="/Stores/hapus/{{ $st['id'] }}" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -78,23 +78,19 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Add Store</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
 
             <form action="/Stores/add" method="post">
                 {{ csrf_field() }}
                 <div class="modal-body">
-
                     <div class="form-group">
                         <label for="name">Store Name</label>
-                        <input type="text" class="form-control" name="name"
-                            placeholder="Enter Store name" autocomplete="off" required>
+                        <input type="text" class="form-control" name="name" placeholder="Enter Store name" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="text" class="form-control" name="address"
-                            placeholder="Enter Address" autocomplete="off" required>
+                        <input type="text" class="form-control" name="address" placeholder="Enter Address" autocomplete="off" required>
                     </div>
                 </div>
 
@@ -117,8 +113,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Update Store</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
 
             <form action="/Stores/update/{{ $data['id'] }}" method="POST">
@@ -127,13 +122,11 @@
 
                     <div class="form-group">
                         <label for="name">Store Name</label>
-                        <input type="text" class="form-control" name="name"
-                        placeholder="Enter Store name" autocomplete="off" value="{{ $data['store_name'] }}">
+                        <input type="text" class="form-control" name="name" placeholder="Enter Store name" autocomplete="off" value="{{ $data['store_name'] }}">
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="text" class="form-control" name="address"
-                            placeholder="Enter Address" autocomplete="off" value="{{ $data['address'] }}">
+                        <input type="text" class="form-control" name="address" placeholder="Enter Address" autocomplete="off" value="{{ $data['address'] }}">
                     </div>
                 </div>
 

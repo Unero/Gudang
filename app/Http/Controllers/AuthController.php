@@ -35,8 +35,7 @@ class AuthController extends Controller
             $request->session()->put('active_role_id', $account[0][0]['role_id']);
             return redirect('/Dashboard');
         } else {
-            echo '<script>window.alert("Data akun salah, tolong periksa kembali");</script>';
-            return redirect('/');
+            return redirect('/')->with(['error' => 'Username atau Password salah']);
         }
     }
 

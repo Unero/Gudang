@@ -13,15 +13,12 @@ class ShippingController extends Controller
         $Shipping = json_decode($reqShipping->body(), true);
         $reqStore = Http::get('http://localhost/Gudang-Backend/API/Stores');
         $Stores = json_decode($reqStore->body(), true);
-        $reqUser = Http::get('http://localhost/Gudang-Backend/API/Users');
-        $Users = json_decode($reqUser->body(), true);
         $reqItem = Http::get('http://localhost/Gudang-Backend/API/Items');
         $Items = json_decode($reqItem->body(), true);
         return view('admin/shipping', [
             'Shipping' => $Shipping,
             'Items' => $Items,
-            'Stores' => $Stores,
-            'Users' => $Users
+            'Stores' => $Stores
         ]);
     }
 
@@ -32,8 +29,8 @@ class ShippingController extends Controller
             'qty' => $request->qty,
             'type' => $request->type,
             'store_id' => $request->store_id,
-            'user_id' => $request->user_id,
-            'time' => strtotime($request->time)
+            'user_id' => session('active_id'),
+            'time' => date("Y-m-d H:i:s")
         ]);
 
         if ($client->status() == 200) {
@@ -51,8 +48,8 @@ class ShippingController extends Controller
             'qty' => $request->qty,
             'type' => $request->type,
             'store_id' => $request->store_id,
-            'user_id' => $request->user_id,
-            'time' => $request->time
+            'user_id' => session('active_id'),
+            'time' => date("Y-m-d H:i:s")
         ]);
 
         if ($client->successful()) {

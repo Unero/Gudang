@@ -15,8 +15,14 @@
 
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col m-5">
                 <h3>Login</h3>
+                @if ($message = Session::get('error'))
+                <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
                 <form action="/Auth/auth" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">

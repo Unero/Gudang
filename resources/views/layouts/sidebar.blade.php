@@ -56,11 +56,6 @@
               <p>🚚 Shipping</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/Company" class="nav-link">
-              <p>🔰 About</p>
-            </a>
-          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
